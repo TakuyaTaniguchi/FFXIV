@@ -1,2 +1,0 @@
-# FFXIV
-Created with CodeSandbox
