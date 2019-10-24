@@ -1,10 +1,29 @@
 import React from 'react'
 
+//component
+import Header from '../component/Header';
+
 export default class App extends React.Component {
+  
+  getMog = () => {
+    fetch(`https://xivapi.com/lore?string=モーグリ&language=ja`, {
+      mode: "cors"
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.log(data)
+        // this.setState({ itemId: data.Results[0].ID });
+        // this.setState({ itemIcon: data.Results[0].Icon });
+        // this.setState({ itemName: data.Results[0].Name });
+      });
+  }
+
   render() {
     return <div>
-        <span>{this.props.fuga}</span>
+      <Header/>
+      <span>{this.props.initialStateReducer.fuga}</span>
       <button onClick={ () => this.props.handleClick() }>増加</button>
+      <button onClick={ () => this.getMog() }>もぐ</button>
     </div>
   }
 }
